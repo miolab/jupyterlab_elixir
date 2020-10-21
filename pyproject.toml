@@ -6,7 +6,7 @@ description = "Environment JupyterLab Poetry docker-compose"
 authors = ["im"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 
 jupyterlab = "*"
 numpy = "*"
@@ -16,9 +16,8 @@ seaborn = "*"
 japanize-matplotlib = "*"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.4"
-pytest-watch = "^4.2.0"
+pytest = "*"
 
 [build-system]
-requires = ["poetry>=0.12"]
+requires = ["poetry_core>=1.0.10"]
 build-backend = "poetry.masonry.api"
