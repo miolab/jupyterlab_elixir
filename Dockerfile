@@ -5,9 +5,9 @@ COPY pyproject.toml ./
 ENV PYTHONUNBUFFERED=1 \
   ERLANG_PACKAGER_VERSION=2.0
 
-RUN apt-get update -y \
-  && apt-get upgrade -y \
-  && apt-get install -y \
+RUN apt-get update -y && \
+  apt-get upgrade -y && \
+  apt-get install -y \
   build-essential \
   curl \
   git \
@@ -44,7 +44,6 @@ RUN apt-get clean
 # Install: IElixir
 RUN git clone https://github.com/pprzetacznik/IElixir.git
 WORKDIR IElixir
-RUN pwd && ls
 RUN mix deps.get
 RUN mix test
 RUN MIX_ENV=prod mix compile
