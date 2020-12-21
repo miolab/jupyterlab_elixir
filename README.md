@@ -1,10 +1,63 @@
-# [WIP] JupyterLab Elixir
+# JupyterLab Elixir
 
-アドベントカレンダー 2020 用の下書きです
+「fukuoka.ex Elixir／Phoenix Advent Calendar 2020」投稿記事用リポジトリ
 
-### 検証環境
+- JupyterLab + Poetry + Docker環境で、Elixirを実行する
+
+## 概要
+
+__JupyterLab__ で、Python __以外__ の開発言語も実行できるようにする。
+
+- 実行環境の構築は __Docker__ で行い、Pythonバージョン及びライブラリ管理は __Poetry__ で行います。
+- Poetryでは仮想環境の構築はスキップします。（Dockerコンテナの構築やってるため）
+- Elixirの対話型実行環境 __「IEx」__ をJupyterLabで実行します。
+  - JupyterカーネルのIElixirを使います。
+
+### モチベーション
+
+- JupyterLabではコマンドの実行結果をそのままファイル形式で保存できます。
+- そのため、たとえばElixirならIEx実行コマンドのコード管理にも役立てられる、ということがJupyterLabを実行するメリットのひとつです。
+### 実行環境
 
 - MacOS
+- Docker (docker-compose)
+
+## 環境構築
+
+
+- 任意のプロジェクト名でディレクトリを作ります
+- ディレクトリ直下に、以下の3ファイルを用意します
+
+  ```terminal
+  .
+  ├── Dockerfile
+  ├── docker-compose.yml
+  └── pyproject.toml
+  ```
+
+## 実行
+
+```terminal
+$ cd hogehoge（ファイルを用意したディレクトリ）
+
+$ docker-compose build
+
+$ docker-compose up
+```
+
+- コンテナが起動したら、ブラウザで [localhost:8890](http://localhost:8890) を確認します。
+
+  <img width="599" alt="jupyter_ex1" src="https://user-images.githubusercontent.com/33124627/102766011-d1593b80-43c0-11eb-8d06-2246098404f3.png">
+
+  - Elixirカーネルを追加することができました。
+
+  <img width="716" alt="jupyter_ex2" src="https://user-images.githubusercontent.com/33124627/102766016-d4542c00-43c0-11eb-917b-ce48e606436d.png">
+
+  - Elixirのコマンド実行もできています。
+
+  - JupyterLabでの実行結果をファイルで保存できるので便利。
+
+---
 
 ### 参考
 
