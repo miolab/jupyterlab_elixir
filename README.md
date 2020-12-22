@@ -57,6 +57,14 @@ $ docker-compose up
 
   - JupyterLabでの実行結果をファイルで保存できるので便利。
 
+### ElixirのライブラリをJupyterLabで使う
+
+- `Boyle.install({:math, "~> 0.5.0"})` のようにコードを書くことで、ライブラリの使用が可能となります。
+
+  <img width="745" alt="math_ex" src="https://user-images.githubusercontent.com/33124627/102885673-18b1fb80-4497-11eb-95a6-f3dad9a1c8e3.png">
+
+  - [math (Hex)](https://hex.pm/packages/math)
+
 ---
 
 ### 参考
@@ -77,6 +85,12 @@ $ docker-compose up
                   ^~~~~~~
       compilation terminated.
       ```
+
+      - [Boyle usage](https://github.com/pprzetacznik/IElixir/blob/master/resources/boyle%20example.ipynb)
+
+        - https://github.com/pprzetacznik/IElixir/blob/master/resources/boyle%20example%20-%20matrex%20installation%20and%20usage.ipynb
+
+        - https://github.com/pprzetacznik/IElixir/blob/master/resources/inlineplot%20example%20-%20gnuplot.ipynb
 
 - Docker
 
