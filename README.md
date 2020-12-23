@@ -1,8 +1,8 @@
 # JupyterLab Elixir
 
-「fukuoka.ex Elixir／Phoenix Advent Calendar 2020」投稿記事用リポジトリ
+「fukuoka.ex Elixir／Phoenix Advent Calendar 2020」投稿記事のサポート用リポジトリ
 
-- JupyterLab + Poetry + Docker環境で、Elixirを実行する
+- [JupyterLab + Poetry + Docker環境で、Elixirを実行する](https://qiita.com/im_miolab/items/01ba3987330a587bd757)
 
 ## 概要
 
@@ -17,6 +17,9 @@ __JupyterLab__ で、Python __以外__ の開発言語も実行できるよう�
 
 - JupyterLabではコマンドの実行結果をそのままファイル形式で保存できます。
 - そのため、たとえばElixirならIEx実行コマンドのコード管理にも役立てられる、ということがJupyterLabを実行するメリットのひとつです。
+- また、`Boyle` により、すぐにElixirライブラリの試用が可能となります。  
+  （mixファイルの準備とかimport hogeとかしなくてもいい）
+
 ### 実行環境
 
 - MacOS
