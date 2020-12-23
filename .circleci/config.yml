@@ -1,0 +1,44 @@
+version: 2.1
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:202010-01
+
+    steps:
+      - checkout
+
+      - run:
+          name: Build Docker containers
+          command: |
+            set -x
+            docker-compose build
+            docker-compose run --rm eda bash -c "python --version""
+            docker-compose run --rm eda bash -c "pip --version""
+            docker-compose run --rm eda bash -c "poetry --versizon""
+            docker-compose run --rm eda bash -c "erl -version"
+            docker-compose run --rm eda bash -c "elixir --versizon""
+            docker-compose run --rm eda bash -c "mix --versizon""
+
+      - run:
+          name: Run Docker containers
+          command: |
+            set -x
+            docker-compose up -d
+            sleep 5
+            docker ps -f status=running
+            docker-compose logs
+
+      - run:
+          name: Run IEx
+          command: |
+            set -x
+            docker-compose exec app bash -c "iex"
+            sleep 5
+            docker-compose exec app bash -c "System.stop"
+
+      - run:
+          name: Down Docker containers and Finish pipeline
+          command: |
+            set -x
+            docker-compose down --rmi all --volumes --remove-orphans
+            echo "Finish pipeline"
