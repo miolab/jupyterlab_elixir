@@ -29,12 +29,10 @@ jobs:
             docker-compose logs
 
       - run:
-          name: Run IEx
+          name: Status check of IEx (by confirm version)
           command: |
             set -x
-            docker-compose exec eda bash -c "iex"
-            sleep 3
-            System.stop
+            docker-compose exec eda bash -c "iex -v"
 
       - run:
           name: Down Docker containers and Finish pipeline
