@@ -12,12 +12,12 @@ jobs:
           command: |
             set -x
             docker-compose build
-            docker-compose run --rm eda bash -c "python --version""
-            docker-compose run --rm eda bash -c "pip --version""
-            docker-compose run --rm eda bash -c "poetry --versizon""
+            docker-compose run --rm eda bash -c "python --version"
+            docker-compose run --rm eda bash -c "pip --version"
+            docker-compose run --rm eda bash -c "poetry --versizon"
             docker-compose run --rm eda bash -c "erl -version"
-            docker-compose run --rm eda bash -c "elixir --versizon""
-            docker-compose run --rm eda bash -c "mix --versizon""
+            docker-compose run --rm eda bash -c "elixir --versizon"
+            docker-compose run --rm eda bash -c "mix --versizon"
 
       - run:
           name: Run Docker containers
