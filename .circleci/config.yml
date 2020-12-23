@@ -1,0 +1,42 @@
+version: 2.1
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:202010-01
+
+    steps:
+      - checkout
+
+      - run:
+          name: Build Docker containers
+          command: |
+            set -x
+            docker-compose build
+            docker-compose run --rm eda bash -c "python --version"
+            docker-compose run --rm eda bash -c "pip --version"
+            docker-compose run --rm eda bash -c "poetry --version"
+            docker-compose run --rm eda bash -c "erl -version"
+            docker-compose run --rm eda bash -c "elixir --version"
+            docker-compose run --rm eda bash -c "mix --version"
+
+      - run:
+          name: Run Docker containers
+          command: |
+            set -x
+            docker-compose up -d
+            sleep 3
+            docker ps -f status=running
+            docker-compose logs
+
+      - run:
+          name: Status check of IEx (by confirm version)
+          command: |
+            set -x
+            docker-compose exec eda bash -c "iex -v"
+
+      - run:
+          name: Down Docker containers and Finish pipeline
+          command: |
+            set -x
+            docker-compose down --rmi all --volumes --remove-orphans
+            echo "Finish pipeline"

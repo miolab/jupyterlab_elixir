@@ -1,5 +1,7 @@
 # JupyterLab Elixir
 
+[![miolab](https://circleci.com/gh/miolab/jupyterlab_elixir.svg?style=svg)](https://github.com/miolab/jupyterlab_elixir)
+
 「fukuoka.ex Elixir／Phoenix Advent Calendar 2020」投稿記事のサポート用リポジトリ
 
 - [JupyterLab + Poetry + Docker環境で、Elixirを実行する](https://qiita.com/im_miolab/items/01ba3987330a587bd757)
