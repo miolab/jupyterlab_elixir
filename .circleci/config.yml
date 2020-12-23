@@ -14,17 +14,17 @@ jobs:
             docker-compose build
             docker-compose run --rm eda bash -c "python --version"
             docker-compose run --rm eda bash -c "pip --version"
-            docker-compose run --rm eda bash -c "poetry --versizon"
+            docker-compose run --rm eda bash -c "poetry --version"
             docker-compose run --rm eda bash -c "erl -version"
-            docker-compose run --rm eda bash -c "elixir --versizon"
-            docker-compose run --rm eda bash -c "mix --versizon"
+            docker-compose run --rm eda bash -c "elixir --version"
+            docker-compose run --rm eda bash -c "mix --version"
 
       - run:
           name: Run Docker containers
           command: |
             set -x
             docker-compose up -d
-            sleep 5
+            sleep 3
             docker ps -f status=running
             docker-compose logs
 
@@ -32,9 +32,9 @@ jobs:
           name: Run IEx
           command: |
             set -x
-            docker-compose exec app bash -c "iex"
-            sleep 5
-            docker-compose exec app bash -c "System.stop"
+            docker-compose exec eda bash -c "iex"
+            sleep 3
+            System.stop
 
       - run:
           name: Down Docker containers and Finish pipeline
